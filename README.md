@@ -16,6 +16,12 @@ ANITA-specific and can be reused pretty easily.
 Seriously, it's actually faster than the Xilinx programming cable
 directly. Significantly.
 
+BUILDING:
+
+make
+
+You need libftdi and libusb.
+
 NOTES:
 
 1) Multi-FPGA chains DO NOT WORK with iMPACT over XVC. NOT AT ALL.
@@ -39,3 +45,15 @@ STILL TO DO:
    The 'best' trick here would actually be to have a hack which
    virtually slices the JTAG chain up and presents only one device
    back to iMPACT. That's a *lot* of work, however!
+
+USAGE:
+
+xvcd-anita [-x #] [-v [#]]
+
+-x # sets the CPLD control register to #. This number is parsed with strtoul()
+with auto-base checking: so prefix with "0x" if you send it in hex.
+
+-v # sets the verbosity to #. # is optional: without it "-v" increments
+the verbosity so you can do silliness like "-vvvv". Verbosity goes up to 6.
+
+Make sure you have permissions to access the FTDI device.
