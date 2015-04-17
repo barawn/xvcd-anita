@@ -56,4 +56,7 @@ with auto-base checking: so prefix with "0x" if you send it in hex.
 -v # sets the verbosity to #. # is optional: without it "-v" increments
 the verbosity so you can do silliness like "-vvvv". Verbosity goes up to 6.
 
-Make sure you have permissions to access the FTDI device.
+USAGE NOTES!!
+
+1) Make sure you have permissions to access the FTDI device.
+2) Make sure ftdi_sio is not loaded (/sbin/rmmod ftdi_sio).
