@@ -212,15 +212,6 @@ int handle_data(int fd) {
        }
        DEBUGPRINTF("\n");
     }
-    if (len == 12) 
-       {
-	  if (buffer[2] == 0x00 && buffer[3] == 0x0d) 
-	    {
-	       DEBUGPRINTF("xvcd: %s : TEMP fix bogus iMPACT instruction register\n", __FUNCTION__);
-	       buffer[2] = 0xFF;
-	       buffer[3] = 0x0F;
-	    }	  
-       }
     if (ftdi_xvc_shift_command(len, buffer, result)) return 1;
     if (write(fd,result, nr_bytes) != nr_bytes) {
       perror("write");
