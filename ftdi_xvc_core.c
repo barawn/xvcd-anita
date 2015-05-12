@@ -1,3 +1,16 @@
+// Basic XVC core for an FTDI device in MPSSE mode, using
+// the libftdi library under Linux. I've tested this under Linux:
+// I guess it could work under Windows as well, but since XVC
+// is network based, I never saw the point.
+
+// Thanks to tmbinc for the original xvcd implementation:
+// this code however is (I'm pretty sure) a total rewrite of the
+// physical layer code.
+
+// Author: P.S. Allison (allison.122@osu.edu)
+// This code is in the public domain (CC0):
+// see https://wiki.creativecommons.org/CC0
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
