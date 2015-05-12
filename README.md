@@ -60,3 +60,7 @@ USAGE NOTES!!
 
 1) Make sure you have permissions to access the FTDI device.
 2) Make sure ftdi_sio is not loaded (/sbin/rmmod ftdi_sio).
+
+Licensing:
+
+"ftdi_xvc_core.c" is licensed CC0 (https://wiki.creativecommons.org/CC0). The remaining code is specific to the ANITA project, and has rights reserved.
