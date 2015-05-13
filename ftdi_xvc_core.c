@@ -102,8 +102,10 @@ int ftdi_xvc_tdi_command(unsigned int len,
   cmd = malloc(cmd_len*sizeof(unsigned char));
   if (!cmd) return 1;
   res = malloc(rd_len*sizeof(unsigned char));
-  if (!res) return 1;
-
+  if (!res) {
+  	free(cmd);
+  	return 1;
+  }
   // Initialize pointer to proper position.
   p = cmd;
   DEBUG(4, "xvcd: %s : shifting %d bits.\n", __FUNCTION__, len);
@@ -172,6 +174,8 @@ int ftdi_xvc_tdi_command(unsigned int len,
 	// we're shifting in LSB first.
 	if (res[rd_len-1] & 0x80) outbuf[nbytes] |= (1<<nbits);
      }
+  // Really done with res now.
+  free(res);
   // And we're done.
   return 0;
 }
