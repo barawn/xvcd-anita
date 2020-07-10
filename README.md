@@ -32,6 +32,15 @@ NOTES:
 2) There may still be a bug lurking somewhere, since after programming
    in ChipScope, the status register shows bizarreness. I say 'may'
    because this might be ChipScope's fault, like iMPACT.
+   
+3) This code doesn't work with Vivado because it has to work around
+   dumb bugs in iMPACT/ChipScope. Other people have builds that work
+   with Vivado, use theirs (but then it won't work back with ChipScope
+   or iMPACT again). Sadly, there's no way for the XVC server to tell
+   whether ChipScope or iMPACT is connecting to it. And of course, for
+   those who would not that ISE is a billion years old at this point,
+   of course you're right, but Vivado doesn't support Spartan-6s,
+   and the device this was built for uses a mix of Artix-7 and Spartan-6s.
 
 STILL TO DO:
 
@@ -45,6 +54,10 @@ STILL TO DO:
    The 'best' trick here would actually be to have a hack which
    virtually slices the JTAG chain up and presents only one device
    back to iMPACT. That's a *lot* of work, however!
+
+The iMPACT bug in question is here:
+
+https://forums.xilinx.com/t5/Vivado-Debug-and-Power/iMPACT-XVC-broken-with-multiple-devices/td-p/496232
 
 USAGE:
 
